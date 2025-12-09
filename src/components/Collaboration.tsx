@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building2, GraduationCap, Users } from "lucide-react";
+import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
 const collaborationTypes = [
   {
@@ -20,11 +21,17 @@ const collaborationTypes = [
 ];
 
 const Collaboration = () => {
+  const { ref, isVisible, getItemDelay } = useStaggeredAnimation(collaborationTypes.length);
+
   return (
     <section id="collaborate" className="section-padding bg-secondary/30">
-      <div className="section-container">
+      <div className="section-container" ref={ref}>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
+          <div 
+            className={`text-center mb-16 transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight">
               Collaborate With Us
             </h2>
@@ -35,10 +42,13 @@ const Collaboration = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {collaborationTypes.map((type) => (
+            {collaborationTypes.map((type, index) => (
               <div
                 key={type.title}
-                className="text-center p-6 rounded-xl bg-card border border-border/50"
+                className={`text-center p-6 rounded-xl bg-card border border-border/50 transition-all duration-700 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+                style={getItemDelay(index)}
               >
                 <div className="w-12 h-12 rounded-lg bg-secondary mx-auto flex items-center justify-center mb-4">
                   <type.icon className="w-6 h-6 text-muted-foreground" />
@@ -49,7 +59,11 @@ const Collaboration = () => {
             ))}
           </div>
 
-          <div className="text-center">
+          <div 
+            className={`text-center transition-all duration-700 delay-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <p className="text-muted-foreground mb-6">
               Interested in working with us? We're always looking for talented researchers 
               and partners who share our vision.
