@@ -5,12 +5,12 @@ const Footer = () => {
 
   const links = {
     research: [
-      { label: "Overview", href: "#research" },
-      { label: "Publications", href: "#publications" },
-      { label: "Team", href: "#team" },
+      { label: "Overview", href: "/#research" },
+      { label: "Publications", href: "/#publications" },
+      { label: "Team", href: "/#team" },
     ],
     company: [
-      { label: "About", href: "#" },
+      { label: "About", href: "/about" },
       { label: "Careers", href: "#" },
       { label: "Contact", href: "#" },
     ],
