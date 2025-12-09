@@ -15,10 +15,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { label: "Research", href: "#research" },
-    { label: "Publications", href: "#publications" },
-    { label: "Team", href: "#team" },
-    { label: "Collaborate", href: "#collaborate" },
+    { label: "About", href: "/about" },
+    { label: "Research", href: "/#research" },
+    { label: "Publications", href: "/#publications" },
+    { label: "Team", href: "/#team" },
+    { label: "Collaborate", href: "/#collaborate" },
   ];
 
   return (
