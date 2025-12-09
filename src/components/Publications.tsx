@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { FileText, ArrowUpRight } from "lucide-react";
+import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
 const publications = [
   {
@@ -29,10 +30,16 @@ const publications = [
 ];
 
 const Publications = () => {
+  const { ref, isVisible, getItemDelay } = useStaggeredAnimation(publications.length);
+
   return (
     <section id="publications" className="section-padding bg-secondary/30">
-      <div className="section-container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+      <div className="section-container" ref={ref}>
+        <div 
+          className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight">
             Publications
           </h2>
@@ -45,7 +52,10 @@ const Publications = () => {
           {publications.map((pub, index) => (
             <div
               key={index}
-              className="group p-6 rounded-xl bg-card border border-border/50 hover:border-border transition-all duration-300 cursor-pointer"
+              className={`group p-6 rounded-xl bg-card border border-border/50 hover:border-border cursor-pointer transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={getItemDelay(index)}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
@@ -70,7 +80,11 @@ const Publications = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div 
+          className={`text-center mt-12 transition-all duration-700 delay-500 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <Button variant="heroOutline" size="lg">
             <FileText className="w-4 h-4 mr-2" />
             View All Papers

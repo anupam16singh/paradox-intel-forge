@@ -1,4 +1,5 @@
 import { Brain, Boxes, Network, Sparkles, Shield, Calculator } from "lucide-react";
+import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
 const researchAreas = [
   {
@@ -34,10 +35,16 @@ const researchAreas = [
 ];
 
 const ResearchFocus = () => {
+  const { ref, isVisible, getItemDelay } = useStaggeredAnimation(researchAreas.length);
+
   return (
     <section id="research" className="section-padding">
-      <div className="section-container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+      <div className="section-container" ref={ref}>
+        <div 
+          className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-heading font-semibold tracking-tight">
             Research Focus
           </h2>
@@ -51,8 +58,10 @@ const ResearchFocus = () => {
           {researchAreas.map((area, index) => (
             <div
               key={area.title}
-              className="group p-8 rounded-xl bg-card border border-border/50 card-hover"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group p-8 rounded-xl bg-card border border-border/50 card-hover transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={getItemDelay(index)}
             >
               <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 transition-colors group-hover:bg-accent/10">
                 <area.icon className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
