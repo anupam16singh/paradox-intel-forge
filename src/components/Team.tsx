@@ -2,9 +2,9 @@ import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
 const team = [
   {
-    name: "Dr. Alexandra Chen",
+    name: "Anupam Singh",
     role: "Founder & Research Director",
-    bio: "Former research scientist at DeepMind. PhD in Computational Neuroscience from MIT. Leading our work on paradox-tolerant architectures.",
+    bio: "Founder of Paradoxai Lab. Leading research on paradox-tolerant AI architectures, reasoning under uncertainty, and next-generation cognitive systems.",
   },
   {
     name: "Dr. Marcus Rodriguez",
