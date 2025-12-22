@@ -4,6 +4,7 @@ import ResearchFocus from "@/components/ResearchFocus";
 import Publications from "@/components/Publications";
 import Team from "@/components/Team";
 import Collaboration from "@/components/Collaboration";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,6 +17,7 @@ const Index = () => {
         <Publications />
         <Team />
         <Collaboration />
+        <Contact />
       </main>
       <Footer />
     </div>
