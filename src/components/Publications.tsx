@@ -4,28 +4,13 @@ import { useStaggeredAnimation } from "@/hooks/use-scroll-animation";
 
 const publications = [
   {
-    title: "Paradox-Tolerant Neural Networks: A New Paradigm for Contradictory Data Processing",
-    authors: "A. Chen, M. Rodriguez, S. Patel",
-    venue: "NeurIPS 2024",
-    type: "Conference Paper",
-  },
-  {
-    title: "Emergent Reasoning in Multi-Agent Systems Under Uncertainty",
-    authors: "S. Patel, L. Kim, A. Chen",
-    venue: "ICML 2024",
-    type: "Conference Paper",
-  },
-  {
-    title: "Cognitive Architectures for Scientific Discovery: A Survey",
-    authors: "M. Rodriguez, J. Thompson",
-    venue: "Paradoxai Lab Technical Report",
-    type: "Technical Report",
-  },
-  {
-    title: "Alignment Through Philosophical Reasoning: Integrating Ethics into Neural Computation",
-    authors: "L. Kim, A. Chen, M. Rodriguez",
-    venue: "AAAI 2024",
-    type: "Conference Paper",
+    title: "ParadoxAI Decision Intelligence Architecture",
+    authors: "Anupam Singh",
+    venue: "Paradoxai Lab Whitepaper",
+    type: "Whitepaper",
+    date: "Aug 2025",
+    description: "A system-level product architecture that translates decision intelligence research into a deployable, human-in-the-loop AI platform. The architecture separates data ingestion, regime awareness, decision representation, robustness evaluation, and human judgment to support safer decision-making without automated execution.",
+    link: "https://github.com/anupam16singh/AIDE-Decision-Intelligence-Operating-System",
   },
 ];
 
@@ -50,9 +35,12 @@ const Publications = () => {
 
         <div className="space-y-4 max-w-4xl mx-auto">
           {publications.map((pub, index) => (
-            <div
+            <a
               key={index}
-              className={`group p-6 rounded-xl bg-card border border-border/50 hover:border-border cursor-pointer transition-all duration-700 ${
+              href={pub.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group block p-6 rounded-xl bg-card border border-border/50 hover:border-border transition-all duration-700 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={getItemDelay(index)}
@@ -66,6 +54,9 @@ const Publications = () => {
                     <span className="text-xs text-muted-foreground">
                       {pub.venue}
                     </span>
+                    <span className="text-xs text-muted-foreground">
+                      {pub.date}
+                    </span>
                   </div>
                   <h3 className="text-base font-medium group-hover:text-accent transition-colors">
                     {pub.title}
@@ -73,10 +64,13 @@ const Publications = () => {
                   <p className="mt-2 text-sm text-muted-foreground">
                     {pub.authors}
                   </p>
+                  <p className="mt-3 text-sm text-muted-foreground/80 leading-relaxed">
+                    {pub.description}
+                  </p>
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 flex-shrink-0" />
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
