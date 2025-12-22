@@ -4,22 +4,7 @@ const team = [
   {
     name: "Anupam Singh",
     role: "Founder & Research Director",
-    bio: "Founder of Paradoxai Lab. Leading research on paradox-tolerant AI architectures, reasoning under uncertainty, and next-generation cognitive systems.",
-  },
-  {
-    name: "Dr. Marcus Rodriguez",
-    role: "Principal Scientist",
-    bio: "Previously at OpenAI research. Specializes in cognitive modeling and emergent behavior in complex systems.",
-  },
-  {
-    name: "Dr. Sanjay Patel",
-    role: "Research Scientist",
-    bio: "Expert in multi-agent systems and game theory. PhD from Stanford in Computer Science with focus on AI alignment.",
-  },
-  {
-    name: "Dr. Lisa Kim",
-    role: "Research Scientist",
-    bio: "Background in mathematical logic and formal verification. Working on integrating philosophical reasoning into neural systems.",
+    bio: "Founder of Paradoxai Lab. Leading research on paradox-tolerant AI architectures, decision intelligence systems, and next-generation cognitive frameworks for safer AI decision-making.",
   },
 ];
 
