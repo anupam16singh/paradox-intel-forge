@@ -5,8 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  
-  : root {
+  :root {
     --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
